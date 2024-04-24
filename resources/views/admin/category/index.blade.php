@@ -3,8 +3,8 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <h3>Daftar Produk</h3>
-            <a href="{{ route('admin.produk.create') }}" class="btn btn-primary">Tambah Produk</a><hr>
+            <h3>Daftar Category</h3>
+            {{-- <a href="{{ route('admin.produk.create') }}" class="btn btn-primary">Tambah Produk</a><hr> --}}
             @if (session()->has('success'))
                 <div class="alert alert-success">{{ session('success') }}</div>
             @endif
@@ -18,7 +18,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($produk as $p)
+                    {{-- @foreach ($produk as $p)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td><img src="/storage/foto-produk/{{ $p->foto }}" alt="foto" width="120px"></td>
@@ -33,10 +33,10 @@
                             <a href="{{ route('admin.produk.edit', $p->id) }}" class="btn btn-warning">Edit</a>
                         </td>
                     </tr>
-                    @endforeach
+                    @endforeach --}}
                 </tbody>
             </table>
-            {{ $produk->links() }}
+            {{-- {{ $produk->links() }} --}}
         </div>
     </div>
 @endsection

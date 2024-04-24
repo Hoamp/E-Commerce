@@ -26,6 +26,7 @@ class AdminProdukController extends Controller
             'harga' => 'required|numeric',
             'foto' => 'required|image',
         ]);
+
         $foto = $request->file('foto');
         $foto->storeAs('public/foto-produk', $foto->hashName());
 
@@ -48,6 +49,45 @@ class AdminProdukController extends Controller
     }
 
     public function detail_produk(Produk $id){
-        return view('admin.produk.detail', compact('id'));
+        $produk = $id;
+        return view('admin.produk.detail', compact('produk'));
+    }
+
+    public function edit_produk(Produk $id){
+        $produk = $id;
+        return view('admin.produk.edit', compact('produk'));
+    }
+
+    public function update_produk(Request $request, Produk $id){
+        $request->validate([
+            'nama' => 'required',
+            'desc' => 'required',
+            'harga' => 'required|numeric',
+            'foto' => 'image',
+        ]);
+
+        $produk = $id;
+
+        if($request->hasFile('foto')){ // jika ada foto
+            Storage::delete('public/foto-produk/'.$produk->foto);
+
+            $foto = $request->file('foto');
+            $foto->storeAs('public/foto-produk', $foto->hashName());
+
+            $produk->update([
+                'nama' => $request->nama,
+                'desc' => $request->desc,
+                'harga' => $request->harga,
+                'foto' => $foto->hashName(),
+            ]);
+        }else{ // jika tidak ada foto
+            $produk->update([
+                'nama' => $request->nama,
+                'desc' => $request->desc,
+                'harga' => $request->harga,
+            ]);
+        }
+
+        return redirect()->route('admin.produk.index')->with('success', 'sukses mengedit produk');
     }
 }
