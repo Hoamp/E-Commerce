@@ -32,6 +32,18 @@
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
                 <div class="mb-2">
+                    <label for="">kategori</label>
+                    <select name="category_id" id="" class="form-control">
+                        @foreach ($category as $c)
+                            @if ($c->id == $produk->category_id)
+                            <option value="{{ $c->id }}" selected>{{ $c->nama }}</option>
+                            @else
+                            <option value="{{ $c->id }}">{{ $c->nama }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                </div>
+                <div class="mb-2">
                     <label for="">deskripsi</label>
                     <textarea name="desc" class="form-control" id="" cols="20" rows="5">{{ $produk->desc }}</textarea>
                 </div>

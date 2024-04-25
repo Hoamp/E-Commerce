@@ -11,6 +11,7 @@
                 <div class="col-md-8">
                     <h4 class="">{{ $produk->nama }}</h4>
                     <h5 class="">Rp. {{ $produk->harga }}</h5>
+                    <h6 class="">kategori : {{ $produk->category->nama }}</h6>
                     <p>{{ $produk->desc }}</p>
                 </div>
             </div>

@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->text('desc');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->string('harga');
+            $table->foreignId('category_id')->nullable();
             $table->timestamps();
         });
     }

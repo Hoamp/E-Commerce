@@ -29,12 +29,22 @@
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
                 <div class="mb-2">
+                    <label for="">kategori</label>
+                    <select name="category_id" id="" class="form-control">
+                        @foreach ($category as $c)
+                        <option value="{{ $c->id }}">{{ $c->nama }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="mb-2">
                     <label for="">deskripsi</label>
                     <textarea name="desc" class="form-control" id="" cols="20" rows="5"></textarea>
                 </div>
                 @error('desc')
-                    <p class="text-danger">{{ $message }}</p>
+                <p class="text-danger">{{ $message }}</p>
                 @enderror
+           
                 <a href="{{ route('admin.produk.index') }}" class="btn btn-secondary">Kembali</a>
                 <button type="submit" class="btn btn-primary">Tambah</button>
             </form>
