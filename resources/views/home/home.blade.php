@@ -44,6 +44,8 @@
       <div class="swiper-pagination position-absolute text-center"></div>
     </section>
     {{-- Bawah barang --}}
+   
+    @if($produkByNewestKategori !== null)
     <section id="smart-watches" class="product-store padding-large position-relative">
       <div class="container">
         <div class="row">
@@ -69,7 +71,7 @@
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
                     <h3 class="card-title text-uppercase">
-                      <a href="#">{{ $p->nama }}</a>
+                      <a href="#">{{$p->nama}}</a>
                     </h3>
                     <span class="item-price text-primary">$870</span>
                   </div>
@@ -83,6 +85,9 @@
       </div>
       <div class="swiper-pagination position-absolute text-center"></div>
     </section>
+    @endif  
+
+
 
     {{-- Offers --}}
     <section id="yearly-sale" class="bg-light-blue overflow-hidden mt-5 padding-xlarge" style="background-image: url('{{ asset('assets/images/single-image1.png') }}');background-position: right; background-repeat: no-repeat;">
