@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminProdukController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,18 +16,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+// public route
 Route::get('/', function () {
     return redirect()->route('home');
 });
-Route::get('/home', function () {
-    return view('home.home');
-})->name('home');
+Route::get('/home',  [HomeController::class, 'index'])->name('home');
+Route::get('/produk/detail/{id}',  [HomeController::class, 'detail'])->name('produk.detail');
 
+
+
+// admin
+// admin produk
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 });
 
-// admin produk
 Route::get('/admin/produk', [AdminProdukController::class, 'index'])->name('admin.produk.index');
 Route::get('/admin/produk/tambah-produk', [AdminProdukController::class, 'hal_tambah_produk'])->name('admin.produk.create');
 Route::post('/admin/produk', [AdminProdukController::class, 'tambah_produk'])->name('admin.produk.store');
@@ -41,5 +46,7 @@ Route::post('/admin/category', [CategoryController::class, 'tambah_category'])->
 Route::delete('/admin/category/{id}', [CategoryController::class, 'hapus_category'])->name('admin.category.delete');
 Route::get('/admin/category/{id}/edit', [CategoryController::class, 'edit_category'])->name('admin.category.edit');
 Route::put('/admin/category/{id}/edit', [CategoryController::class, 'update_category'])->name('admin.category.update');
+// end admin
+
 
 
