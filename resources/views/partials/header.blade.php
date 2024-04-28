@@ -70,12 +70,12 @@
                   <ul class="d-flex justify-content-end list-unstyled">
                     <li class="search-item pe-3">
                       <a href="#" class="search-button">
-                        s
+                        <i data-feather="search"></i>
                       </a>
                     </li>
                     <li class="pe-3">
                       <a href="#">
-                       u
+                        <i data-feather="user"></i>
                       </a>
                     </li>
                     <li>

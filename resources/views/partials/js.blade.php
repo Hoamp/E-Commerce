@@ -4,3 +4,8 @@
 <script type="text/javascript" src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/plugins.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/script.js') }}"></script>
+
+<script src="https://unpkg.com/feather-icons"></script>
+<script>
+    feather.replace();
+</script>
