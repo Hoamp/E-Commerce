@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminProdukController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -50,7 +51,9 @@ Route::middleware(['auth'])->group(function(){
 
     // customer
     Route::middleware(['is_customer'])->group(function(){
-
+        Route::get('/customer/profile', [CustomersController::class, 'profile'])->name('customer.profile');
+        Route::get('/customer/profile/edit', [CustomersController::class, 'profile_edit'])->name('customer.profile.edit');
+        Route::post('/customer/profile', [CustomersController::class, 'profile_update'])->name('customer.profile.update');
     });
     // end customer
 

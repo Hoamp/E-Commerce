@@ -73,11 +73,33 @@
                         <i data-feather="search"></i>
                       </a>
                     </li>
-                    <li class="pe-3">
-                      <a href="#">
-                        <i data-feather="user"></i>
-                      </a>
-                    </li>
+                    @if (auth()->user() !== null)
+                      @if (auth()->user()->role == 'customer')
+                      <li class="pe-3">
+                        <a href="{{ route('customer.profile') }}">
+                          <i data-feather="user"></i>
+                        </a>
+                      </li>
+                      @elseif(auth()->user()->role == 'seller')
+                      <li class="pe-3">
+                        <a href="#">
+                          <i data-feather="user"></i>
+                        </a>
+                      </li>
+                      @elseif(auth()->user()->role == 'admin')
+                      <li class="pe-3">
+                        <a href="#">
+                          <i data-feather="user"></i>
+                        </a>
+                      </li>
+                      @else
+                      {{-- memang kosong jika belum login --}}
+                      @endif
+                    @else
+
+                    @endif
+                    
+                   
                     <li>
                       <a href="cart.html">
                        c

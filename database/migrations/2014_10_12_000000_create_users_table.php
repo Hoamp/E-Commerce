@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string('nama');
             $table->string('username');
             $table->string('email')->unique();
+            $table->string('telp')->unique()->nullable();
+            $table->string('alamat')->nullable();
+            $table->string('tanda_rumah')->nullable();
             $table->string('password');
             $table->enum('role', ['admin','customer','seller'])->default('customer');
             $table->rememberToken();
