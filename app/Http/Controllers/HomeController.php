@@ -9,12 +9,13 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-        $produk = Produk::latest()->paginate(4);
+        $produk = Produk::latest()->paginate(8);
 
         if(Category::count() > 0){    
             $produkByNewestKategori = Produk::with(['category'])->where('category_id', Category::latest()->first()->id)->get();
+        }else{
+            $produkByNewestKategori = null;
         }
-        $produkByNewestKategori = null;
 
         return view('home.home', compact('produk', 'produkByNewestKategori'));
     }

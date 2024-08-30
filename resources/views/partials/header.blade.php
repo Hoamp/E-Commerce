@@ -19,13 +19,10 @@
           <div class="offcanvas-body">
             <ul id="navbar" class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link me-4 active" href="#billboard">Home</a>
+                <a class="nav-link me-4 active" href="{{ route('home') }}">Beranda</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link me-4" href="#company-services">Services</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link me-4" href="#mobile-products">Products</a>
+                <a class="nav-link me-4" href="{{ route('toko.index') }}">Produk</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link me-4" href="#smart-watches">Watches</a>

@@ -28,7 +28,7 @@
             </div>
             <div class="row mt-4">
                 <div class="col-md-1">
-                    <a href="{{ route('home') }}" class="btn btn-secondary">Kembali</a>
+                    <a href="{{ url()->previous() }}" class="btn btn-secondary">Kembali</a>
 
                 </div>
             </div>

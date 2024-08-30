@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Toko\ProdukController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +42,15 @@ Route::middleware(['auth'])->group(function(){
     });
 
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    
+    
+    Route::get('/toko', [ProdukController::class, 'index'])->name('toko.index');
+    
+
+    
+    
+    Route::get('/toko/category/{nama}', [ProdukController::class, 'category'])->name('toko.category.index');
+
 
 
     // seller

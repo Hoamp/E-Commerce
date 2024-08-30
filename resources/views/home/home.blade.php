@@ -11,7 +11,7 @@
           <div class="display-header d-flex justify-content-between pb-3">
             <h2 class="display-7 text-dark text-uppercase">Barang Terbaru</h2>
             <div class="btn-right">
-              <a href="shop.html" class="btn btn-medium btn-normal text-uppercase">Lihat selengkapnya</a>
+              <a href="{{ route('toko.index') }}" class="btn btn-medium btn-normal text-uppercase">Lihat selengkapnya</a>
             </div>
           </div>
           <div class="swiper product-swiper">
@@ -21,7 +21,7 @@
               <div class="swiper-slide">
                 <div class="product-card position-relative">
                   <div class="image-holder">
-                    <img src="/storage/foto-produk/{{ $p->foto }}" alt="product-item" class="img-fluid ">
+                    <img src="/storage/foto-produk/{{ $p->foto }}" alt="product-item" class="img-fluid " width="100%">
                   </div>
                   <div class="cart-concern position-absolute">
                     <div class="cart-button d-flex">
@@ -44,7 +44,6 @@
       <div class="swiper-pagination position-absolute text-center"></div>
     </section>
     {{-- Bawah barang --}}
-   
     @if($produkByNewestKategori !== null)
     <section id="smart-watches" class="product-store padding-large position-relative">
       <div class="container">
@@ -52,7 +51,7 @@
           <div class="display-header d-flex justify-content-between pb-3">
             <h2 class="display-7 text-dark text-uppercase">Barang Dari Kategori {{ $produkByNewestKategori->first()->category->nama }}</h2>
             <div class="btn-right">
-              <a href="shop.html" class="btn btn-medium btn-normal text-uppercase">Go to Shop</a>
+              <a href="shop.html" class="btn btn-medium btn-normal text-uppercase">Lihat selengkapnya</a>
             </div>
           </div>
           <div class="swiper product-watch-swiper">
@@ -62,18 +61,18 @@
               <div class="swiper-slide">
                 <div class="product-card position-relative">
                   <div class="image-holder">
-                    <img src="/storage/foto-produk/{{ $p->foto }}" alt="product-item" class="img-fluid">
+                    <img src="/storage/foto-produk/{{ $p->foto }}" alt="product-item" class="img-fluid" width="100%">
                   </div>
                   <div class="cart-concern position-absolute">
                     <div class="cart-button d-flex">
-                      <a href="#" class="btn btn-medium btn-black">Add to Cart<svg class="cart-outline"><use xlink:href="#cart-outline"></use></svg></a>
+                      <a href="{{ route('produk.detail', $p->id) }}" class="btn btn-medium btn-black">Lihat detail<svg class="cart-outline"><use xlink:href="#cart-outline"></use></svg></a>
                     </div>
                   </div>
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
                     <h3 class="card-title text-uppercase">
                       <a href="#">{{$p->nama}}</a>
                     </h3>
-                    <span class="item-price text-primary">$870</span>
+                    <span class="item-price text-primary">Rp. {{ $p->harga }}</span>
                   </div>
                 </div>
               </div>
